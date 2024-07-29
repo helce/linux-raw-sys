@@ -48,6 +48,10 @@ qemu-s390x -L /usr/s390x-linux-gnu ./main.exe >> "$out"
 # pre-generated output is used for the time being
 cat loongarch-ioctls.txt >> "$out"
 cat csky-ioctls.txt >> "$out"
+# lcc -Iinclude -I../linux/usr/include -c list.c #cflags
+# lcc main.c list.o -o main.exe $cflags
+# qemu-e2k -L /usr/e2k-linux-gnu ./main.exe >> "$out"
+cat e2k-ioctls.txt >> "$out"
 
 # Add any extra custom definitions at the end.
 echo "#include \"ioctl-addendum.h\"" >> "$out"
