@@ -1270,6 +1270,10 @@ pub mod system;
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
 #[path = "x32/xdp.rs"]
 pub mod xdp;
+#[cfg(feature = "bootparam")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/bootparam.rs"]
+pub mod bootparam;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/errno.rs"]
@@ -1278,6 +1282,10 @@ pub mod errno;
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/general.rs"]
 pub mod general;
+#[cfg(feature = "if_arp")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/if_arp.rs"]
+pub mod if_arp;
 #[cfg(feature = "if_ether")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/if_ether.rs"]
@@ -1294,6 +1302,10 @@ pub mod io_uring;
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "loop_device")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/loop_device.rs"]
+pub mod loop_device;
 #[cfg(feature = "mempolicy")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/mempolicy.rs"]
