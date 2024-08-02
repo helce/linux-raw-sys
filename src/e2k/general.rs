@@ -56,6 +56,7 @@ pub type __poll_t = crate::ctypes::c_uint;
 pub type cap_user_header_t = *mut __user_cap_header_struct;
 pub type cap_user_data_t = *mut __user_cap_data_struct;
 pub type __kernel_rwf_t = crate::ctypes::c_int;
+pub type sigset_t = crate::ctypes::c_ulong;
 pub type __signalfn_t = ::core::option::Option<unsafe extern "C" fn(arg1: crate::ctypes::c_int)>;
 pub type __sighandler_t = __signalfn_t;
 pub type __restorefn_t = ::core::option::Option<unsafe extern "C" fn()>;
