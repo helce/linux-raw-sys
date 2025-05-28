@@ -45,6 +45,8 @@ int main(void) {
     printf("#if defined(__s390x__)\n");
 #elif defined(__loongarch__)
     printf("#ifdef __loongarch__\n");
+#elif defined(__e2k__)
+    printf("#ifdef __e2k__\n");
 #else
 #error "unimplemented architecture"
 #endif

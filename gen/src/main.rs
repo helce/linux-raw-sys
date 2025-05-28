@@ -287,6 +287,7 @@ fn rust_arches(linux_arch: &str) -> &[&str] {
         "s390" => &["s390x"],
         "sparc" => &["sparc", "sparc64"],
         "x86" => &["x86", "x86_64", "x32"],
+        "e2k" => &["e2k"],
         "alpha" | "cris" | "h8300" | "m68k" | "microblaze" | "mn10300" | "score" | "blackfin"
         | "frv" | "ia64" | "m32r" | "m68knommu" | "parisc" | "sh" | "um" | "xtensa"
         | "unicore32" | "c6x" | "nios2" | "openrisc" | "csky" | "arc" | "nds32" | "metag"
