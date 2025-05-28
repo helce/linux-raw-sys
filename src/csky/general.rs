@@ -326,6 +326,21 @@ pub name: __IncompleteArrayField<crate::ctypes::c_char>,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
+pub struct cachestat_range {
+pub off: __u64,
+pub len: __u64,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct cachestat {
+pub nr_cache: __u64,
+pub nr_dirty: __u64,
+pub nr_writeback: __u64,
+pub nr_evicted: __u64,
+pub nr_recently_evicted: __u64,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct pollfd {
 pub fd: crate::ctypes::c_int,
 pub events: crate::ctypes::c_short,
@@ -877,9 +892,9 @@ pub sa_handler_kernel: __kernel_sighandler_t,
 pub sa_flags: crate::ctypes::c_ulong,
 pub sa_mask: kernel_sigset_t,
 }
-pub const LINUX_VERSION_CODE: u32 = 394240;
+pub const LINUX_VERSION_CODE: u32 = 394496;
 pub const LINUX_VERSION_MAJOR: u32 = 6;
-pub const LINUX_VERSION_PATCHLEVEL: u32 = 4;
+pub const LINUX_VERSION_PATCHLEVEL: u32 = 5;
 pub const LINUX_VERSION_SUBLEVEL: u32 = 0;
 pub const AT_NULL: u32 = 0;
 pub const AT_IGNORE: u32 = 1;
@@ -1084,6 +1099,7 @@ pub const AT_STATX_SYNC_AS_STAT: u32 = 0;
 pub const AT_STATX_FORCE_SYNC: u32 = 8192;
 pub const AT_STATX_DONT_SYNC: u32 = 16384;
 pub const AT_RECURSIVE: u32 = 32768;
+pub const AT_HANDLE_FID: u32 = 512;
 pub const EPOLL_CLOEXEC: u32 = 524288;
 pub const EPOLL_CTL_ADD: u32 = 1;
 pub const EPOLL_CTL_DEL: u32 = 2;
@@ -1228,7 +1244,8 @@ pub const MOVE_MOUNT_T_SYMLINKS: u32 = 16;
 pub const MOVE_MOUNT_T_AUTOMOUNTS: u32 = 32;
 pub const MOVE_MOUNT_T_EMPTY_PATH: u32 = 64;
 pub const MOVE_MOUNT_SET_GROUP: u32 = 256;
-pub const MOVE_MOUNT__MASK: u32 = 375;
+pub const MOVE_MOUNT_BENEATH: u32 = 512;
+pub const MOVE_MOUNT__MASK: u32 = 887;
 pub const FSOPEN_CLOEXEC: u32 = 1;
 pub const FSPICK_CLOEXEC: u32 = 1;
 pub const FSPICK_SYMLINK_NOFOLLOW: u32 = 2;
@@ -1591,6 +1608,19 @@ pub const POLLRDHUP: u32 = 8192;
 pub const GRND_NONBLOCK: u32 = 1;
 pub const GRND_RANDOM: u32 = 2;
 pub const GRND_INSECURE: u32 = 4;
+pub const LINUX_REBOOT_MAGIC1: u32 = 4276215469;
+pub const LINUX_REBOOT_MAGIC2: u32 = 672274793;
+pub const LINUX_REBOOT_MAGIC2A: u32 = 85072278;
+pub const LINUX_REBOOT_MAGIC2B: u32 = 369367448;
+pub const LINUX_REBOOT_MAGIC2C: u32 = 537993216;
+pub const LINUX_REBOOT_CMD_RESTART: u32 = 19088743;
+pub const LINUX_REBOOT_CMD_HALT: u32 = 3454992675;
+pub const LINUX_REBOOT_CMD_CAD_ON: u32 = 2309737967;
+pub const LINUX_REBOOT_CMD_CAD_OFF: u32 = 0;
+pub const LINUX_REBOOT_CMD_POWER_OFF: u32 = 1126301404;
+pub const LINUX_REBOOT_CMD_RESTART2: u32 = 2712847316;
+pub const LINUX_REBOOT_CMD_SW_SUSPEND: u32 = 3489725666;
+pub const LINUX_REBOOT_CMD_KEXEC: u32 = 1163412803;
 pub const ITIMER_REAL: u32 = 0;
 pub const ITIMER_VIRTUAL: u32 = 1;
 pub const ITIMER_PROF: u32 = 2;
@@ -1689,8 +1719,6 @@ pub const SCHED_FLAG_KEEP_ALL: u32 = 24;
 pub const SCHED_FLAG_UTIL_CLAMP: u32 = 96;
 pub const SCHED_FLAG_ALL: u32 = 127;
 pub const _NSIG: u32 = 64;
-pub const _NSIG_BPW: u32 = 32;
-pub const _NSIG_WORDS: u32 = 2;
 pub const SIGHUP: u32 = 1;
 pub const SIGINT: u32 = 2;
 pub const SIGQUIT: u32 = 3;
@@ -2376,7 +2404,8 @@ pub const __NR_landlock_restrict_self: u32 = 446;
 pub const __NR_process_mrelease: u32 = 448;
 pub const __NR_futex_waitv: u32 = 449;
 pub const __NR_set_mempolicy_home_node: u32 = 450;
-pub const __NR_syscalls: u32 = 451;
+pub const __NR_cachestat: u32 = 451;
+pub const __NR_syscalls: u32 = 452;
 pub const __NR_fcntl64: u32 = 25;
 pub const __NR_statfs64: u32 = 43;
 pub const __NR_fstatfs64: u32 = 44;
