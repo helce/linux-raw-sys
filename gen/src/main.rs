@@ -173,6 +173,7 @@ fn main() {
     writeln!(cargo_toml, "default = [\"std\", {}]", DEFAULT_FEATURES).unwrap();
     writeln!(cargo_toml, "std = []").unwrap();
     writeln!(cargo_toml, "no_std = []").unwrap();
+    writeln!(cargo_toml, "elf = []").unwrap();
     writeln!(
         cargo_toml,
         "rustc-dep-of-std = [\"core\", \"compiler_builtins\", \"no_std\"]"
@@ -278,6 +279,7 @@ fn rust_arches(linux_arch: &str) -> &[&str] {
         "arm" => &["arm"],
         "arm64" => &["aarch64"],
         "avr32" => &["avr"],
+        "csky" => &["csky"],
         // hexagon gets build errors; disable it for now
         "hexagon" => &[],
         "loongarch" => &["loongarch64"],
@@ -290,7 +292,7 @@ fn rust_arches(linux_arch: &str) -> &[&str] {
         "e2k" => &["e2k"],
         "alpha" | "cris" | "h8300" | "m68k" | "microblaze" | "mn10300" | "score" | "blackfin"
         | "frv" | "ia64" | "m32r" | "m68knommu" | "parisc" | "sh" | "um" | "xtensa"
-        | "unicore32" | "c6x" | "nios2" | "openrisc" | "csky" | "arc" | "nds32" | "metag"
+        | "unicore32" | "c6x" | "nios2" | "openrisc" | "arc" | "nds32" | "metag"
         | "tile" => &[],
         _ => panic!("unrecognized arch: {}", linux_arch),
     }

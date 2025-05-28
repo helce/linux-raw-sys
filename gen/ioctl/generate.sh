@@ -47,6 +47,7 @@ qemu-s390x -L /usr/s390x-linux-gnu ./main.exe >> "$out"
 # As LoongArch cross toolchain is not yet packaged in mainstream distros yet,
 # pre-generated output is used for the time being
 cat loongarch-ioctls.txt >> "$out"
+cat csky-ioctls.txt >> "$out"
 # lcc -Iinclude -I../linux/usr/include -c list.c $cflags
 # lcc main.c list.o -o main.exe $cflags
 # qemu-e2k -L /usr/e2k-linux-gnu ./main.exe >> "$out"
