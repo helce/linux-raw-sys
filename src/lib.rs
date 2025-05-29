@@ -26,6 +26,7 @@ pub mod ctypes {
         target_arch = "x86",
         target_arch = "x86_64",
         target_arch = "xtensa",
+        target_arch = "e2k",
     ))]
     pub type c_char = c_schar;
 
