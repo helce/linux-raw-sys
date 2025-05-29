@@ -1020,6 +1020,10 @@ pub mod io_uring;
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "mempolicy")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/mempolicy.rs"]
+pub mod mempolicy;
 #[cfg(feature = "net")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/net.rs"]
@@ -1036,3 +1040,7 @@ pub mod prctl;
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/system.rs"]
 pub mod system;
+#[cfg(feature = "xdp")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/xdp.rs"]
+pub mod xdp;
