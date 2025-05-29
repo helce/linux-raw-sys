@@ -1,6 +1,6 @@
 [package]
 name = "linux-raw-sys"
-version = "0.6.1"
+version = "0.6.2"
 authors = ["Dan Gohman <dev@sunfishcode.online>"]
 description = "Generated bindings for Linux's userspace API"
 documentation = "https://docs.rs/linux-raw-sys"
@@ -31,10 +31,12 @@ general = []
 if_ether = []
 io_uring = []
 ioctl = []
+mempolicy = []
 net = []
 netlink = []
 prctl = []
 system = []
+xdp = []
 default = ["std", "general", "errno"]
 std = []
 no_std = []
