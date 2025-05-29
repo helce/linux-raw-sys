@@ -1084,6 +1084,10 @@ pub mod general;
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/if_ether.rs"]
 pub mod if_ether;
+#[cfg(feature = "if_packet")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/if_packet.rs"]
+pub mod if_packet;
 #[cfg(feature = "io_uring")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/io_uring.rs"]
