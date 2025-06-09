@@ -214,6 +214,14 @@ pub mod elf;
 #[cfg(target_arch = "arm")]
 #[path = "arm/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "arm")]
+#[path = "arm/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "arm")]
+#[path = "arm/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "arm")]
 #[path = "arm/errno.rs"]
@@ -242,6 +250,10 @@ pub mod io_uring;
 #[cfg(target_arch = "arm")]
 #[path = "arm/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "arm")]
+#[path = "arm/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "arm")]
 #[path = "arm/loop_device.rs"]
@@ -262,6 +274,10 @@ pub mod netlink;
 #[cfg(target_arch = "arm")]
 #[path = "arm/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "arm")]
+#[path = "arm/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "arm")]
 #[path = "arm/system.rs"]
@@ -274,6 +290,14 @@ pub mod xdp;
 #[cfg(target_arch = "aarch64")]
 #[path = "aarch64/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "aarch64")]
+#[path = "aarch64/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "aarch64")]
+#[path = "aarch64/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "aarch64")]
 #[path = "aarch64/errno.rs"]
@@ -302,6 +326,10 @@ pub mod io_uring;
 #[cfg(target_arch = "aarch64")]
 #[path = "aarch64/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "aarch64")]
+#[path = "aarch64/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "aarch64")]
 #[path = "aarch64/loop_device.rs"]
@@ -322,6 +350,10 @@ pub mod netlink;
 #[cfg(target_arch = "aarch64")]
 #[path = "aarch64/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "aarch64")]
+#[path = "aarch64/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "aarch64")]
 #[path = "aarch64/system.rs"]
@@ -334,6 +366,14 @@ pub mod xdp;
 #[cfg(target_arch = "csky")]
 #[path = "csky/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "csky")]
+#[path = "csky/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "csky")]
+#[path = "csky/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "csky")]
 #[path = "csky/errno.rs"]
@@ -362,6 +402,10 @@ pub mod io_uring;
 #[cfg(target_arch = "csky")]
 #[path = "csky/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "csky")]
+#[path = "csky/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "csky")]
 #[path = "csky/loop_device.rs"]
@@ -382,6 +426,10 @@ pub mod netlink;
 #[cfg(target_arch = "csky")]
 #[path = "csky/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "csky")]
+#[path = "csky/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "csky")]
 #[path = "csky/system.rs"]
@@ -394,6 +442,14 @@ pub mod xdp;
 #[cfg(target_arch = "loongarch64")]
 #[path = "loongarch64/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "loongarch64")]
+#[path = "loongarch64/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "loongarch64")]
+#[path = "loongarch64/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "loongarch64")]
 #[path = "loongarch64/errno.rs"]
@@ -422,6 +478,10 @@ pub mod io_uring;
 #[cfg(target_arch = "loongarch64")]
 #[path = "loongarch64/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "loongarch64")]
+#[path = "loongarch64/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "loongarch64")]
 #[path = "loongarch64/loop_device.rs"]
@@ -442,6 +502,10 @@ pub mod netlink;
 #[cfg(target_arch = "loongarch64")]
 #[path = "loongarch64/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "loongarch64")]
+#[path = "loongarch64/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "loongarch64")]
 #[path = "loongarch64/system.rs"]
@@ -454,6 +518,14 @@ pub mod xdp;
 #[cfg(target_arch = "mips")]
 #[path = "mips/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "mips")]
+#[path = "mips/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "mips")]
+#[path = "mips/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "mips")]
 #[path = "mips/errno.rs"]
@@ -482,6 +554,10 @@ pub mod io_uring;
 #[cfg(target_arch = "mips")]
 #[path = "mips/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "mips")]
+#[path = "mips/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "mips")]
 #[path = "mips/loop_device.rs"]
@@ -502,6 +578,10 @@ pub mod netlink;
 #[cfg(target_arch = "mips")]
 #[path = "mips/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "mips")]
+#[path = "mips/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "mips")]
 #[path = "mips/system.rs"]
@@ -514,6 +594,14 @@ pub mod xdp;
 #[cfg(target_arch = "mips64")]
 #[path = "mips64/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "mips64")]
+#[path = "mips64/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "mips64")]
+#[path = "mips64/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "mips64")]
 #[path = "mips64/errno.rs"]
@@ -542,6 +630,10 @@ pub mod io_uring;
 #[cfg(target_arch = "mips64")]
 #[path = "mips64/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "mips64")]
+#[path = "mips64/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "mips64")]
 #[path = "mips64/loop_device.rs"]
@@ -562,6 +654,10 @@ pub mod netlink;
 #[cfg(target_arch = "mips64")]
 #[path = "mips64/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "mips64")]
+#[path = "mips64/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "mips64")]
 #[path = "mips64/system.rs"]
@@ -574,6 +670,14 @@ pub mod xdp;
 #[cfg(target_arch = "mips32r6")]
 #[path = "mips32r6/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "mips32r6")]
+#[path = "mips32r6/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "mips32r6")]
+#[path = "mips32r6/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "mips32r6")]
 #[path = "mips32r6/errno.rs"]
@@ -602,6 +706,10 @@ pub mod io_uring;
 #[cfg(target_arch = "mips32r6")]
 #[path = "mips32r6/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "mips32r6")]
+#[path = "mips32r6/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "mips32r6")]
 #[path = "mips32r6/loop_device.rs"]
@@ -622,6 +730,10 @@ pub mod netlink;
 #[cfg(target_arch = "mips32r6")]
 #[path = "mips32r6/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "mips32r6")]
+#[path = "mips32r6/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "mips32r6")]
 #[path = "mips32r6/system.rs"]
@@ -634,6 +746,14 @@ pub mod xdp;
 #[cfg(target_arch = "mips64r6")]
 #[path = "mips64r6/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "mips64r6")]
+#[path = "mips64r6/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "mips64r6")]
+#[path = "mips64r6/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "mips64r6")]
 #[path = "mips64r6/errno.rs"]
@@ -662,6 +782,10 @@ pub mod io_uring;
 #[cfg(target_arch = "mips64r6")]
 #[path = "mips64r6/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "mips64r6")]
+#[path = "mips64r6/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "mips64r6")]
 #[path = "mips64r6/loop_device.rs"]
@@ -682,6 +806,10 @@ pub mod netlink;
 #[cfg(target_arch = "mips64r6")]
 #[path = "mips64r6/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "mips64r6")]
+#[path = "mips64r6/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "mips64r6")]
 #[path = "mips64r6/system.rs"]
@@ -694,6 +822,14 @@ pub mod xdp;
 #[cfg(target_arch = "powerpc")]
 #[path = "powerpc/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "powerpc")]
+#[path = "powerpc/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "powerpc")]
+#[path = "powerpc/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "powerpc")]
 #[path = "powerpc/errno.rs"]
@@ -722,6 +858,10 @@ pub mod io_uring;
 #[cfg(target_arch = "powerpc")]
 #[path = "powerpc/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "powerpc")]
+#[path = "powerpc/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "powerpc")]
 #[path = "powerpc/loop_device.rs"]
@@ -742,6 +882,10 @@ pub mod netlink;
 #[cfg(target_arch = "powerpc")]
 #[path = "powerpc/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "powerpc")]
+#[path = "powerpc/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "powerpc")]
 #[path = "powerpc/system.rs"]
@@ -754,6 +898,14 @@ pub mod xdp;
 #[cfg(target_arch = "powerpc64")]
 #[path = "powerpc64/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "powerpc64")]
+#[path = "powerpc64/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "powerpc64")]
+#[path = "powerpc64/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "powerpc64")]
 #[path = "powerpc64/errno.rs"]
@@ -782,6 +934,10 @@ pub mod io_uring;
 #[cfg(target_arch = "powerpc64")]
 #[path = "powerpc64/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "powerpc64")]
+#[path = "powerpc64/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "powerpc64")]
 #[path = "powerpc64/loop_device.rs"]
@@ -802,6 +958,10 @@ pub mod netlink;
 #[cfg(target_arch = "powerpc64")]
 #[path = "powerpc64/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "powerpc64")]
+#[path = "powerpc64/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "powerpc64")]
 #[path = "powerpc64/system.rs"]
@@ -814,6 +974,14 @@ pub mod xdp;
 #[cfg(target_arch = "riscv32")]
 #[path = "riscv32/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "riscv32")]
+#[path = "riscv32/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "riscv32")]
+#[path = "riscv32/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "riscv32")]
 #[path = "riscv32/errno.rs"]
@@ -842,6 +1010,10 @@ pub mod io_uring;
 #[cfg(target_arch = "riscv32")]
 #[path = "riscv32/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "riscv32")]
+#[path = "riscv32/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "riscv32")]
 #[path = "riscv32/loop_device.rs"]
@@ -862,6 +1034,10 @@ pub mod netlink;
 #[cfg(target_arch = "riscv32")]
 #[path = "riscv32/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "riscv32")]
+#[path = "riscv32/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "riscv32")]
 #[path = "riscv32/system.rs"]
@@ -874,6 +1050,14 @@ pub mod xdp;
 #[cfg(target_arch = "riscv64")]
 #[path = "riscv64/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "riscv64")]
+#[path = "riscv64/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "riscv64")]
+#[path = "riscv64/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "riscv64")]
 #[path = "riscv64/errno.rs"]
@@ -902,6 +1086,10 @@ pub mod io_uring;
 #[cfg(target_arch = "riscv64")]
 #[path = "riscv64/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "riscv64")]
+#[path = "riscv64/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "riscv64")]
 #[path = "riscv64/loop_device.rs"]
@@ -922,6 +1110,10 @@ pub mod netlink;
 #[cfg(target_arch = "riscv64")]
 #[path = "riscv64/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "riscv64")]
+#[path = "riscv64/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "riscv64")]
 #[path = "riscv64/system.rs"]
@@ -934,6 +1126,14 @@ pub mod xdp;
 #[cfg(target_arch = "s390x")]
 #[path = "s390x/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "s390x")]
+#[path = "s390x/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "s390x")]
+#[path = "s390x/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "s390x")]
 #[path = "s390x/errno.rs"]
@@ -962,6 +1162,10 @@ pub mod io_uring;
 #[cfg(target_arch = "s390x")]
 #[path = "s390x/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "s390x")]
+#[path = "s390x/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "s390x")]
 #[path = "s390x/loop_device.rs"]
@@ -982,6 +1186,10 @@ pub mod netlink;
 #[cfg(target_arch = "s390x")]
 #[path = "s390x/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "s390x")]
+#[path = "s390x/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "s390x")]
 #[path = "s390x/system.rs"]
@@ -994,6 +1202,14 @@ pub mod xdp;
 #[cfg(target_arch = "sparc")]
 #[path = "sparc/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "sparc")]
+#[path = "sparc/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "sparc")]
+#[path = "sparc/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "sparc")]
 #[path = "sparc/errno.rs"]
@@ -1022,6 +1238,10 @@ pub mod io_uring;
 #[cfg(target_arch = "sparc")]
 #[path = "sparc/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "sparc")]
+#[path = "sparc/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "sparc")]
 #[path = "sparc/loop_device.rs"]
@@ -1042,6 +1262,10 @@ pub mod netlink;
 #[cfg(target_arch = "sparc")]
 #[path = "sparc/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "sparc")]
+#[path = "sparc/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "sparc")]
 #[path = "sparc/system.rs"]
@@ -1054,6 +1278,14 @@ pub mod xdp;
 #[cfg(target_arch = "sparc64")]
 #[path = "sparc64/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "sparc64")]
+#[path = "sparc64/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "sparc64")]
+#[path = "sparc64/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "sparc64")]
 #[path = "sparc64/errno.rs"]
@@ -1082,6 +1314,10 @@ pub mod io_uring;
 #[cfg(target_arch = "sparc64")]
 #[path = "sparc64/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "sparc64")]
+#[path = "sparc64/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "sparc64")]
 #[path = "sparc64/loop_device.rs"]
@@ -1102,6 +1338,10 @@ pub mod netlink;
 #[cfg(target_arch = "sparc64")]
 #[path = "sparc64/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "sparc64")]
+#[path = "sparc64/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "sparc64")]
 #[path = "sparc64/system.rs"]
@@ -1114,6 +1354,14 @@ pub mod xdp;
 #[cfg(target_arch = "x86")]
 #[path = "x86/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "x86")]
+#[path = "x86/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "x86")]
+#[path = "x86/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "x86")]
 #[path = "x86/errno.rs"]
@@ -1142,6 +1390,10 @@ pub mod io_uring;
 #[cfg(target_arch = "x86")]
 #[path = "x86/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "x86")]
+#[path = "x86/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "x86")]
 #[path = "x86/loop_device.rs"]
@@ -1162,6 +1414,10 @@ pub mod netlink;
 #[cfg(target_arch = "x86")]
 #[path = "x86/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "x86")]
+#[path = "x86/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(target_arch = "x86")]
 #[path = "x86/system.rs"]
@@ -1174,6 +1430,14 @@ pub mod xdp;
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
 #[path = "x86_64/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
+#[path = "x86_64/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
+#[path = "x86_64/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
 #[path = "x86_64/errno.rs"]
@@ -1202,6 +1466,10 @@ pub mod io_uring;
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
 #[path = "x86_64/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
+#[path = "x86_64/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
 #[path = "x86_64/loop_device.rs"]
@@ -1222,6 +1490,10 @@ pub mod netlink;
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
 #[path = "x86_64/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
+#[path = "x86_64/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
 #[path = "x86_64/system.rs"]
@@ -1234,6 +1506,14 @@ pub mod xdp;
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
 #[path = "x32/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
+#[path = "x32/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
+#[path = "x32/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
 #[path = "x32/errno.rs"]
@@ -1262,6 +1542,10 @@ pub mod io_uring;
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
 #[path = "x32/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
+#[path = "x32/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
 #[path = "x32/loop_device.rs"]
@@ -1282,6 +1566,10 @@ pub mod netlink;
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
 #[path = "x32/prctl.rs"]
 pub mod prctl;
+#[cfg(feature = "ptrace")]
+#[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
+#[path = "x32/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "system")]
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
 #[path = "x32/system.rs"]
