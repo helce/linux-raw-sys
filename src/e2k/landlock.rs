@@ -53,82 +53,47 @@ pub type __sum16 = __u16;
 pub type __wsum = __u32;
 pub type __poll_t = crate::ctypes::c_uint;
 #[repr(C)]
-#[derive(Default)]
-pub struct __IncompleteArrayField<T>(::core::marker::PhantomData<T>, [T; 0]);
-#[repr(C)]
-#[derive(Debug)]
-pub struct sysinfo {
-pub uptime: __kernel_long_t,
-pub loads: [__kernel_ulong_t; 3usize],
-pub totalram: __kernel_ulong_t,
-pub freeram: __kernel_ulong_t,
-pub sharedram: __kernel_ulong_t,
-pub bufferram: __kernel_ulong_t,
-pub totalswap: __kernel_ulong_t,
-pub freeswap: __kernel_ulong_t,
-pub procs: __u16,
-pub pad: __u16,
-pub totalhigh: __kernel_ulong_t,
-pub freehigh: __kernel_ulong_t,
-pub mem_unit: __u32,
-pub _f: __IncompleteArrayField<crate::ctypes::c_char>,
+#[derive(Debug, Copy, Clone)]
+pub struct landlock_ruleset_attr {
+pub handled_access_fs: __u64,
+pub handled_access_net: __u64,
+}
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone)]
+pub struct landlock_path_beneath_attr {
+pub allowed_access: __u64,
+pub parent_fd: __s32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct oldold_utsname {
-pub sysname: [crate::ctypes::c_char; 9usize],
-pub nodename: [crate::ctypes::c_char; 9usize],
-pub release: [crate::ctypes::c_char; 9usize],
-pub version: [crate::ctypes::c_char; 9usize],
-pub machine: [crate::ctypes::c_char; 9usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct old_utsname {
-pub sysname: [crate::ctypes::c_char; 65usize],
-pub nodename: [crate::ctypes::c_char; 65usize],
-pub release: [crate::ctypes::c_char; 65usize],
-pub version: [crate::ctypes::c_char; 65usize],
-pub machine: [crate::ctypes::c_char; 65usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct new_utsname {
-pub sysname: [crate::ctypes::c_char; 65usize],
-pub nodename: [crate::ctypes::c_char; 65usize],
-pub release: [crate::ctypes::c_char; 65usize],
-pub version: [crate::ctypes::c_char; 65usize],
-pub machine: [crate::ctypes::c_char; 65usize],
-pub domainname: [crate::ctypes::c_char; 65usize],
+pub struct landlock_net_port_attr {
+pub allowed_access: __u64,
+pub port: __u64,
 }
 pub const __BITS_PER_LONG_LONG: u32 = 64;
-pub const SI_LOAD_SHIFT: u32 = 16;
-pub const __OLD_UTS_LEN: u32 = 8;
-pub const __NEW_UTS_LEN: u32 = 64;
-impl<T> __IncompleteArrayField<T> {
-#[inline]
-pub const fn new() -> Self {
-__IncompleteArrayField(::core::marker::PhantomData, [])
-}
-#[inline]
-pub fn as_ptr(&self) -> *const T {
-self as *const _ as *const T
-}
-#[inline]
-pub fn as_mut_ptr(&mut self) -> *mut T {
-self as *mut _ as *mut T
-}
-#[inline]
-pub unsafe fn as_slice(&self, len: usize) -> &[T] {
-::core::slice::from_raw_parts(self.as_ptr(), len)
-}
-#[inline]
-pub unsafe fn as_mut_slice(&mut self, len: usize) -> &mut [T] {
-::core::slice::from_raw_parts_mut(self.as_mut_ptr(), len)
-}
-}
-impl<T> ::core::fmt::Debug for __IncompleteArrayField<T> {
-fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-fmt.write_str("__IncompleteArrayField")
-}
+pub const LANDLOCK_CREATE_RULESET_VERSION: u32 = 1;
+pub const LANDLOCK_ACCESS_FS_EXECUTE: u32 = 1;
+pub const LANDLOCK_ACCESS_FS_WRITE_FILE: u32 = 2;
+pub const LANDLOCK_ACCESS_FS_READ_FILE: u32 = 4;
+pub const LANDLOCK_ACCESS_FS_READ_DIR: u32 = 8;
+pub const LANDLOCK_ACCESS_FS_REMOVE_DIR: u32 = 16;
+pub const LANDLOCK_ACCESS_FS_REMOVE_FILE: u32 = 32;
+pub const LANDLOCK_ACCESS_FS_MAKE_CHAR: u32 = 64;
+pub const LANDLOCK_ACCESS_FS_MAKE_DIR: u32 = 128;
+pub const LANDLOCK_ACCESS_FS_MAKE_REG: u32 = 256;
+pub const LANDLOCK_ACCESS_FS_MAKE_SOCK: u32 = 512;
+pub const LANDLOCK_ACCESS_FS_MAKE_FIFO: u32 = 1024;
+pub const LANDLOCK_ACCESS_FS_MAKE_BLOCK: u32 = 2048;
+pub const LANDLOCK_ACCESS_FS_MAKE_SYM: u32 = 4096;
+pub const LANDLOCK_ACCESS_FS_REFER: u32 = 8192;
+pub const LANDLOCK_ACCESS_FS_TRUNCATE: u32 = 16384;
+pub const LANDLOCK_ACCESS_FS_IOCTL_DEV: u32 = 32768;
+pub const LANDLOCK_ACCESS_NET_BIND_TCP: u32 = 1;
+pub const LANDLOCK_ACCESS_NET_CONNECT_TCP: u32 = 2;
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum landlock_rule_type {
+LANDLOCK_RULE_PATH_BENEATH = 1,
+LANDLOCK_RULE_NET_PORT = 2,
 }
