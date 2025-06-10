@@ -1582,6 +1582,14 @@ pub mod xdp;
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/bootparam.rs"]
 pub mod bootparam;
+#[cfg(feature = "btrfs")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/btrfs.rs"]
+pub mod btrfs;
+#[cfg(feature = "elf_uapi")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/elf_uapi.rs"]
+pub mod elf_uapi;
 #[cfg(feature = "errno")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/errno.rs"]
@@ -1610,6 +1618,10 @@ pub mod io_uring;
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/ioctl.rs"]
 pub mod ioctl;
+#[cfg(feature = "landlock")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/landlock.rs"]
+pub mod landlock;
 #[cfg(feature = "loop_device")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/loop_device.rs"]
@@ -1634,6 +1646,10 @@ pub mod prctl;
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/system.rs"]
 pub mod system;
+#[cfg(feature = "ptrace")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/ptrace.rs"]
+pub mod ptrace;
 #[cfg(feature = "xdp")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/xdp.rs"]
