@@ -10,6 +10,8 @@ pub type __s64 = crate::ctypes::c_longlong;
 pub type __u64 = crate::ctypes::c_ulonglong;
 pub type __kernel_key_t = crate::ctypes::c_int;
 pub type __kernel_mqd_t = crate::ctypes::c_int;
+pub type __kernel_old_uid_t = crate::ctypes::c_ushort;
+pub type __kernel_old_gid_t = crate::ctypes::c_ushort;
 pub type __kernel_long_t = crate::ctypes::c_long;
 pub type __kernel_ulong_t = crate::ctypes::c_ulong;
 pub type __kernel_ino_t = __kernel_ulong_t;
@@ -22,8 +24,6 @@ pub type __kernel_suseconds_t = __kernel_long_t;
 pub type __kernel_daddr_t = crate::ctypes::c_int;
 pub type __kernel_uid32_t = crate::ctypes::c_uint;
 pub type __kernel_gid32_t = crate::ctypes::c_uint;
-pub type __kernel_old_uid_t = __kernel_uid_t;
-pub type __kernel_old_gid_t = __kernel_gid_t;
 pub type __kernel_old_dev_t = crate::ctypes::c_uint;
 pub type __kernel_size_t = __kernel_ulong_t;
 pub type __kernel_ssize_t = __kernel_long_t;
@@ -52,49 +52,29 @@ pub type __wsum = __u32;
 pub type __poll_t = crate::ctypes::c_uint;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct landlock_ruleset_attr {
-pub handled_access_fs: __u64,
-pub handled_access_net: __u64,
-pub scoped: __u64,
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct landlock_path_beneath_attr {
-pub allowed_access: __u64,
-pub parent_fd: __s32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct landlock_net_port_attr {
-pub allowed_access: __u64,
-pub port: __u64,
+pub struct arm64_image_header {
+pub code0: __le32,
+pub code1: __le32,
+pub text_offset: __le64,
+pub image_size: __le64,
+pub flags: __le64,
+pub res2: __le64,
+pub res3: __le64,
+pub res4: __le64,
+pub magic: __le32,
+pub res5: __le32,
 }
 pub const __BITS_PER_LONG_LONG: u32 = 64;
-pub const LANDLOCK_CREATE_RULESET_VERSION: u32 = 1;
-pub const LANDLOCK_ACCESS_FS_EXECUTE: u32 = 1;
-pub const LANDLOCK_ACCESS_FS_WRITE_FILE: u32 = 2;
-pub const LANDLOCK_ACCESS_FS_READ_FILE: u32 = 4;
-pub const LANDLOCK_ACCESS_FS_READ_DIR: u32 = 8;
-pub const LANDLOCK_ACCESS_FS_REMOVE_DIR: u32 = 16;
-pub const LANDLOCK_ACCESS_FS_REMOVE_FILE: u32 = 32;
-pub const LANDLOCK_ACCESS_FS_MAKE_CHAR: u32 = 64;
-pub const LANDLOCK_ACCESS_FS_MAKE_DIR: u32 = 128;
-pub const LANDLOCK_ACCESS_FS_MAKE_REG: u32 = 256;
-pub const LANDLOCK_ACCESS_FS_MAKE_SOCK: u32 = 512;
-pub const LANDLOCK_ACCESS_FS_MAKE_FIFO: u32 = 1024;
-pub const LANDLOCK_ACCESS_FS_MAKE_BLOCK: u32 = 2048;
-pub const LANDLOCK_ACCESS_FS_MAKE_SYM: u32 = 4096;
-pub const LANDLOCK_ACCESS_FS_REFER: u32 = 8192;
-pub const LANDLOCK_ACCESS_FS_TRUNCATE: u32 = 16384;
-pub const LANDLOCK_ACCESS_FS_IOCTL_DEV: u32 = 32768;
-pub const LANDLOCK_ACCESS_NET_BIND_TCP: u32 = 1;
-pub const LANDLOCK_ACCESS_NET_CONNECT_TCP: u32 = 2;
-pub const LANDLOCK_SCOPE_ABSTRACT_UNIX_SOCKET: u32 = 1;
-pub const LANDLOCK_SCOPE_SIGNAL: u32 = 2;
-#[repr(u32)]
-#[non_exhaustive]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub enum landlock_rule_type {
-LANDLOCK_RULE_PATH_BENEATH = 1,
-LANDLOCK_RULE_NET_PORT = 2,
-}
+pub const ARM64_IMAGE_MAGIC: &[u8; 5] = b"ARMd\0";
+pub const ARM64_IMAGE_FLAG_BE_SHIFT: u32 = 0;
+pub const ARM64_IMAGE_FLAG_PAGE_SIZE_SHIFT: u32 = 1;
+pub const ARM64_IMAGE_FLAG_PHYS_BASE_SHIFT: u32 = 3;
+pub const ARM64_IMAGE_FLAG_BE_MASK: u32 = 1;
+pub const ARM64_IMAGE_FLAG_PAGE_SIZE_MASK: u32 = 3;
+pub const ARM64_IMAGE_FLAG_PHYS_BASE_MASK: u32 = 1;
+pub const ARM64_IMAGE_FLAG_LE: u32 = 0;
+pub const ARM64_IMAGE_FLAG_BE: u32 = 1;
+pub const ARM64_IMAGE_FLAG_PAGE_SIZE_4K: u32 = 1;
+pub const ARM64_IMAGE_FLAG_PAGE_SIZE_16K: u32 = 2;
+pub const ARM64_IMAGE_FLAG_PAGE_SIZE_64K: u32 = 3;
+pub const ARM64_IMAGE_FLAG_PHYS_BASE: u32 = 1;

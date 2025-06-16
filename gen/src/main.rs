@@ -10,7 +10,7 @@ use std::process::Command;
 use std::{env, fs};
 
 #[allow(unused_doc_comments)]
-const LINUX_VERSION: &str = "v6.12";
+const LINUX_VERSION: &str = "v6.13";
 
 /// Some commonly used features.
 const DEFAULT_FEATURES: &str = "\"general\", \"errno\"";
@@ -272,6 +272,15 @@ fn make_headers_install(linux_arch: &str, linux_headers: &Path) {
         .status()
         .unwrap()
         .success());
+
+    // HACK: Header missing from kernel installation - likely an upstream bug that needs to be reported
+    if linux_arch == "arm64" {
+        fs::copy(
+            "linux/arch/arm64/include/asm/image.h",
+            linux_headers.join("include/asm/image.h"),
+        )
+        .expect("Missing headers");
+    }
 }
 
 fn rust_arches(linux_arch: &str) -> &[&str] {
