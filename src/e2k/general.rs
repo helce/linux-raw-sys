@@ -457,6 +457,14 @@ pub cgroup: __u64,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
+pub struct sigaction {
+pub sa_handler: __sighandler_t,
+pub sa_flags: crate::ctypes::c_ulong,
+pub sa_restorer: __sigrestore_t,
+pub sa_mask: sigset_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct sigaltstack {
 pub ss_sp: *mut crate::ctypes::c_void,
 pub ss_flags: crate::ctypes::c_int,
@@ -861,7 +869,6 @@ pub const LINUX_VERSION_MAJOR: u32 = 6;
 pub const LINUX_VERSION_PATCHLEVEL: u32 = 3;
 pub const LINUX_VERSION_SUBLEVEL: u32 = 0;
 pub const AT_SYSINFO_EHDR: u32 = 33;
-pub const AT_VECTOR_SIZE_ARCH: u32 = 2;
 pub const AT_NULL: u32 = 0;
 pub const AT_IGNORE: u32 = 1;
 pub const AT_EXECFD: u32 = 2;
@@ -1019,9 +1026,9 @@ pub const RESOLVE_IN_ROOT: u32 = 16;
 pub const RESOLVE_CACHED: u32 = 32;
 pub const F_SETLEASE: u32 = 1024;
 pub const F_GETLEASE: u32 = 1025;
+pub const F_NOTIFY: u32 = 1026;
 pub const F_CANCELLK: u32 = 1029;
 pub const F_DUPFD_CLOEXEC: u32 = 1030;
-pub const F_NOTIFY: u32 = 1026;
 pub const F_SETPIPE_SZ: u32 = 1031;
 pub const F_GETPIPE_SZ: u32 = 1032;
 pub const F_ADD_SEALS: u32 = 1033;
@@ -1635,7 +1642,10 @@ pub const RLIMIT_MSGQUEUE: u32 = 12;
 pub const RLIMIT_NICE: u32 = 13;
 pub const RLIMIT_RTPRIO: u32 = 14;
 pub const RLIMIT_RTTIME: u32 = 15;
+pub const RLIMIT_P_STACK: u32 = 10001;
+pub const RLIMIT_PC_STACK: u32 = 10002;
 pub const RLIM_NLIMITS: u32 = 16;
+pub const RLIM_NLIMITS_EXT: u32 = 2;
 pub const RLIM_INFINITY: i32 = -1;
 pub const CSIGNAL: u32 = 255;
 pub const CLONE_VM: u32 = 256;
@@ -2026,6 +2036,7 @@ pub const EXTPROC: u32 = 65536;
 pub const TCSANOW: u32 = 0;
 pub const TCSADRAIN: u32 = 1;
 pub const TCSAFLUSH: u32 = 2;
+pub const TIODUMPREGS: u32 = 21750;
 pub const TIOCPKT_DATA: u32 = 0;
 pub const TIOCPKT_FLUSHREAD: u32 = 1;
 pub const TIOCPKT_FLUSHWRITE: u32 = 2;
