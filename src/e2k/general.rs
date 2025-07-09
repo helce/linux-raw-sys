@@ -279,7 +279,12 @@ pub opt_num: __u32,
 pub opt_array: __u32,
 pub opt_sec_num: __u32,
 pub opt_sec_array: __u32,
-pub __spare2: [__u64; 46usize],
+pub supported_mask: __u64,
+pub mnt_uidmap_num: __u32,
+pub mnt_uidmap: __u32,
+pub mnt_gidmap_num: __u32,
+pub mnt_gidmap: __u32,
+pub __spare2: [__u64; 43usize],
 pub str_: __IncompleteArrayField<crate::ctypes::c_char>,
 }
 #[repr(C)]
@@ -700,7 +705,7 @@ pub stx_subvol: __u64,
 pub stx_atomic_write_unit_min: __u32,
 pub stx_atomic_write_unit_max: __u32,
 pub stx_atomic_write_segments_max: __u32,
-pub __spare1: [__u32; 1usize],
+pub stx_dio_read_offset_align: __u32,
 pub __spare3: [__u64; 9usize],
 }
 #[repr(C)]
@@ -1034,9 +1039,9 @@ pub sa_flags: crate::ctypes::c_ulong,
 pub sa_restorer: __sigrestore_t,
 pub sa_mask: kernel_sigset_t,
 }
-pub const LINUX_VERSION_CODE: u32 = 396544;
+pub const LINUX_VERSION_CODE: u32 = 397056;
 pub const LINUX_VERSION_MAJOR: u32 = 6;
-pub const LINUX_VERSION_PATCHLEVEL: u32 = 13;
+pub const LINUX_VERSION_PATCHLEVEL: u32 = 15;
 pub const LINUX_VERSION_SUBLEVEL: u32 = 0;
 pub const AT_SYSINFO_EHDR: u32 = 33;
 pub const AT_NULL: u32 = 0;
@@ -1250,6 +1255,7 @@ pub const AT_REMOVEDIR: u32 = 512;
 pub const AT_HANDLE_FID: u32 = 512;
 pub const AT_HANDLE_MNT_ID_UNIQUE: u32 = 1;
 pub const AT_HANDLE_CONNECTABLE: u32 = 2;
+pub const AT_EXECVE_CHECK: u32 = 65536;
 pub const EPOLL_CLOEXEC: u32 = 524288;
 pub const EPOLL_CTL_ADD: u32 = 1;
 pub const EPOLL_CTL_DEL: u32 = 2;
@@ -1430,12 +1436,19 @@ pub const STATMOUNT_FS_SUBTYPE: u32 = 256;
 pub const STATMOUNT_SB_SOURCE: u32 = 512;
 pub const STATMOUNT_OPT_ARRAY: u32 = 1024;
 pub const STATMOUNT_OPT_SEC_ARRAY: u32 = 2048;
+pub const STATMOUNT_SUPPORTED_MASK: u32 = 4096;
+pub const STATMOUNT_MNT_UIDMAP: u32 = 8192;
+pub const STATMOUNT_MNT_GIDMAP: u32 = 16384;
 pub const LSMT_ROOT: i32 = -1;
 pub const LISTMOUNT_REVERSE: u32 = 1;
 pub const INR_OPEN_CUR: u32 = 1024;
 pub const INR_OPEN_MAX: u32 = 4096;
 pub const BLOCK_SIZE_BITS: u32 = 10;
 pub const BLOCK_SIZE: u32 = 1024;
+pub const IO_INTEGRITY_CHK_GUARD: u32 = 1;
+pub const IO_INTEGRITY_CHK_REFTAG: u32 = 2;
+pub const IO_INTEGRITY_CHK_APPTAG: u32 = 4;
+pub const IO_INTEGRITY_VALID_FLAGS: u32 = 7;
 pub const SEEK_SET: u32 = 0;
 pub const SEEK_CUR: u32 = 1;
 pub const SEEK_END: u32 = 2;
@@ -1746,6 +1759,7 @@ pub const MADV_GUARD_INSTALL: u32 = 102;
 pub const MADV_GUARD_REMOVE: u32 = 103;
 pub const MAP_ANON: u32 = 16;
 pub const MAP_FILE: u32 = 0;
+pub const PKEY_UNRESTRICTED: u32 = 0;
 pub const PKEY_DISABLE_ACCESS: u32 = 1;
 pub const PKEY_DISABLE_WRITE: u32 = 2;
 pub const PKEY_ACCESS_MASK: u32 = 3;
@@ -2092,6 +2106,7 @@ pub const STATX_DIOALIGN: u32 = 8192;
 pub const STATX_MNT_ID_UNIQUE: u32 = 16384;
 pub const STATX_SUBVOL: u32 = 32768;
 pub const STATX_WRITE_ATOMIC: u32 = 65536;
+pub const STATX_DIO_READ_ALIGN: u32 = 131072;
 pub const STATX__RESERVED: u32 = 2147483648;
 pub const STATX_ALL: u32 = 4095;
 pub const STATX_ATTR_COMPRESSED: u32 = 4;
@@ -2704,7 +2719,8 @@ pub const __NR_setxattrat: u32 = 458;
 pub const __NR_getxattrat: u32 = 459;
 pub const __NR_listxattrat: u32 = 460;
 pub const __NR_removexattrat: u32 = 461;
-pub const NR_syscalls: u32 = 462;
+pub const __NR_open_tree_attr: u32 = 462;
+pub const NR_syscalls: u32 = 463;
 pub const __NR_pread64: u32 = 180;
 pub const __NR_pwrite64: u32 = 181;
 pub const __NR_fast_sys_gettimeofday: u32 = 0;
@@ -2764,6 +2780,8 @@ pub const XATTR_APPARMOR_SUFFIX: &[u8; 9] = b"apparmor\0";
 pub const XATTR_NAME_APPARMOR: &[u8; 18] = b"security.apparmor\0";
 pub const XATTR_CAPS_SUFFIX: &[u8; 11] = b"capability\0";
 pub const XATTR_NAME_CAPS: &[u8; 20] = b"security.capability\0";
+pub const XATTR_BPF_LSM_SUFFIX: &[u8; 5] = b"bpf.\0";
+pub const XATTR_NAME_BPF_LSM: &[u8; 14] = b"security.bpf.\0";
 pub const XATTR_POSIX_ACL_ACCESS: &[u8; 17] = b"posix_acl_access\0";
 pub const XATTR_NAME_POSIX_ACL_ACCESS: &[u8; 24] = b"system.posix_acl_access\0";
 pub const XATTR_POSIX_ACL_DEFAULT: &[u8; 18] = b"posix_acl_default\0";
