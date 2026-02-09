@@ -10,7 +10,7 @@ use std::process::Command;
 use std::{env, fs};
 
 #[allow(unused_doc_comments)]
-const LINUX_VERSION: &str = "v6.15";
+const LINUX_VERSION: &str = "v6.16";
 
 /// Some commonly used features.
 const DEFAULT_FEATURES: &str = "\"general\", \"errno\"";
@@ -176,7 +176,7 @@ fn main() {
     writeln!(cargo_toml, "elf = []").unwrap();
     writeln!(
         cargo_toml,
-        "rustc-dep-of-std = [\"core\", \"compiler_builtins\", \"no_std\"]"
+        "rustc-dep-of-std = [\"core\", \"no_std\"]"
     )
     .unwrap();
 
