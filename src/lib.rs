@@ -1730,6 +1730,10 @@ pub mod system;
 #[cfg(all(target_arch = "x86_64", target_pointer_width = "32"))]
 #[path = "x32/xdp.rs"]
 pub mod xdp;
+#[cfg(feature = "auxvec")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/auxvec.rs"]
+pub mod auxvec;
 #[cfg(feature = "bootparam")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/bootparam.rs"]
