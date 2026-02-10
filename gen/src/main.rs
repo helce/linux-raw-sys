@@ -174,11 +174,7 @@ fn main() {
     writeln!(cargo_toml, "std = []").unwrap();
     writeln!(cargo_toml, "no_std = []").unwrap();
     writeln!(cargo_toml, "elf = []").unwrap();
-    writeln!(
-        cargo_toml,
-        "rustc-dep-of-std = [\"core\", \"no_std\"]"
-    )
-    .unwrap();
+    writeln!(cargo_toml, "rustc-dep-of-std = [\"core\", \"no_std\"]").unwrap();
 
     eprintln!("All bindings generated!");
 }
@@ -289,9 +285,9 @@ fn rust_arches(linux_arch: &str) -> &[&str] {
         "arm64" => &["aarch64"],
         "avr32" => &["avr"],
         "csky" => &["csky"],
-        // hexagon gets build errors; disable it for now
-        "hexagon" => &[],
+        "hexagon" => &["hexagon"],
         "loongarch" => &["loongarch64"],
+        "m68k" => &["m68k"],
         "mips" => &["mips", "mips64", "mips32r6", "mips64r6"],
         "powerpc" => &["powerpc", "powerpc64"],
         "riscv" => &["riscv32", "riscv64"],
@@ -299,9 +295,9 @@ fn rust_arches(linux_arch: &str) -> &[&str] {
         "sparc" => &["sparc", "sparc64"],
         "x86" => &["x86", "x86_64", "x32"],
         "e2k" => &["e2k"],
-        "alpha" | "cris" | "h8300" | "m68k" | "microblaze" | "mn10300" | "score" | "blackfin"
-        | "frv" | "ia64" | "m32r" | "m68knommu" | "parisc" | "sh" | "um" | "xtensa"
-        | "unicore32" | "c6x" | "nios2" | "openrisc" | "arc" | "nds32" | "metag" | "tile" => &[],
+        "alpha" | "cris" | "h8300" | "microblaze" | "mn10300" | "score" | "blackfin" | "frv"
+        | "ia64" | "m32r" | "m68knommu" | "parisc" | "sh" | "um" | "xtensa" | "unicore32"
+        | "c6x" | "nios2" | "openrisc" | "arc" | "nds32" | "metag" | "tile" => &[],
         _ => panic!("unrecognized arch: {}", linux_arch),
     }
 }
@@ -363,6 +359,13 @@ fn run_bindgen(
         builder = builder.blocklist_item("__kernel_fsid_t");
         builder = builder.blocklist_item("^HUGETLB_FLAG_ENCODE_.*");
         builder = builder.blocklist_item("^RESOLVE_.*");
+    }
+    if rust_arch == "m68k" {
+        // Don't emit the `size_t` workaround types for m68k. This should be
+        // removed when there's a bindgen release with a fix for [1].
+        //
+        // [1]: https://github.com/rust-lang/rust-bindgen/issues/3312
+        builder = builder.blocklist_type("^s?size_t$");
     }
 
     let bindings = builder

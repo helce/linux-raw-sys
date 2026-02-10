@@ -51,6 +51,8 @@ int main(void) {
     printf("#ifdef __csky__\n");
 #elif defined(__e2k__)
     printf("#ifdef __e2k__\n");
+#elif defined(__m68k__)
+    printf("#ifdef __m68k__\n");
 #else
 #error "unimplemented architecture"
 #endif
