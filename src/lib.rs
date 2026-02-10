@@ -1838,6 +1838,10 @@ pub mod if_ether;
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/if_packet.rs"]
 pub mod if_packet;
+#[cfg(feature = "if_tun")]
+#[cfg(target_arch = "e2k")]
+#[path = "e2k/if_tun.rs"]
+pub mod if_tun;
 #[cfg(feature = "image")]
 #[cfg(target_arch = "e2k")]
 #[path = "e2k/image.rs"]
